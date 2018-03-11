@@ -1,6 +1,5 @@
-# TypeScript Node Starter
-
-[![Dependency Status](https://david-dm.org/Microsoft/TypeScript-Node-Starter.svg)](https://david-dm.org/Microsoft/TypeScript-Node-Starter) [![Build Status](https://travis-ci.org/Microsoft/TypeScript-Node-Starter.svg?branch=master)](https://travis-ci.org/Microsoft/TypeScript-Node-Starter) 
+# GoodHub Food Donations
+###### _based on the TypeScript Node Starter repo_
 
 # Pre-reqs
 - Install [Node.js](https://nodejs.org/en/) (Please make sure you have Node.js v8.9+ and npm v5.1.0+ installed globally!)
