@@ -1,5 +1,5 @@
 # GoodHub Food Donations
-###### _based on the TypeScript Node Starter repo_
+###### _based on the [TypeScript Node Starter](https://github.com/Microsoft/TypeScript-Node-Starter) repo_
 
 # Pre-reqs
 - Install [Node.js](https://nodejs.org/en/) (Please make sure you have Node.js v8.9+ and npm v5.1.0+ installed globally!)
