@@ -7,7 +7,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "nodemon",
+            "name": "Nodemon: Debug server",
             "runtimeExecutable": "nodemon",
             "runtimeArgs": [
                 "--inspect-brk=5858"
