@@ -2,11 +2,14 @@ import bcrypt from "bcrypt-nodejs";
 import crypto from "crypto";
 import mongoose from "mongoose";
 
+import { ConfirmationStatus } from "../enums/validation-status";
+
 export type UserModel = mongoose.Document & {
   email: string,
   password: string,
   passwordResetToken: string,
   passwordResetExpires: Date,
+  confirmationStatus: ConfirmationStatus,
 
   facebook: string,
   tokens: AuthToken[],
@@ -33,6 +36,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
+  confirmationStatus: Number,
 
   facebook: String,
   twitter: String,
