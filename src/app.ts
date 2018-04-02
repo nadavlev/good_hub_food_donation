@@ -13,6 +13,8 @@ import passport from "passport";
 import expressValidator from "express-validator";
 import bluebird from "bluebird";
 
+const swaggerJSDoc = require('swagger-jsdoc');
+
 const MongoStore = mongo(session);
 
 // Load environment variables from .env file, where API keys and passwords are configured
@@ -31,6 +33,28 @@ import * as passportConfig from "./config/passport";
 
 // Create Express server
 const app = express();
+
+// Swagger definition
+var swaggerDefinition = {
+  info: {
+    title: 'GoodHub Node Swagger API',
+    version: '1.0.0',
+    description: 'RESTful API documentation for GoodHub Node Swagger API',
+  },
+  host: 'localhost:3000',
+  basePath: '/',
+};
+
+// options for the swagger docs
+var options = {
+  // import swaggerDefinitions
+  swaggerDefinition: swaggerDefinition,
+  // path to the API docs
+  apis: ['./routes/*.js'],
+};
+
+// initialize swagger-jsdoc
+var swaggerSpec = swaggerJSDoc(options);
 
 app.set("env", process.env.DEVELOPMENT == "true" ? "development" : "production");
 
@@ -114,6 +138,12 @@ app.post("/account/profile", passportConfig.isAuthenticated, userController.post
 app.post("/account/password", passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post("/account/delete", passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get("/account/unlink/:provider", passportConfig.isAuthenticated, userController.getOauthUnlink);
+
+// serve swagger
+app.get('/swagger.json', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
 
 /**
  * API examples routes.
