@@ -3,7 +3,7 @@
 
 # Pre-reqs
 - Install [Node.js](https://nodejs.org/en/) (Please make sure you have Node.js v8.9+ and npm v5.1.0+ installed globally!)
-- Install [MongoDB](https://docs.mongodb.com/manual/installation/)
+- Install [MongoDB](https://docs.mongodb.com/manual/installation/) (**Make sure to disable the "Install/Download Compass" option during in the installation steps or the installer will get stuck and never finish!**)
 - Install [VS Code](https://code.visualstudio.com/)
 
 # Getting started
@@ -16,7 +16,7 @@ git clone --depth=1 https://github.com/Microsoft/TypeScript-Node-Starter.git <pr
 cd <project_name>
 npm install
 ```
-- Configure your mongoDB server
+- Configure your mongoDB server (_Only required on Linux/Mac machines_)
 ```
 # create the db directory
 sudo mkdir -p /data/db
@@ -24,6 +24,8 @@ sudo mkdir -p /data/db
 sudo chmod 777 /data/db
 ```
 - Start your mongoDB server (you'll probably want another command prompt)
+
+_(If you want to create the database in a specific folder, you can open your command prompt inside the folder, and add the --dbpath="./" flag to the mongod command)_
 ```
 mongod
 ```
