@@ -6,7 +6,8 @@ import { Request, Response, NextFunction } from "express";
 import { IVerifyOptions } from "passport-local";
 import { WriteError } from "mongodb";
 import { default as User, UserModel, AuthToken } from "../models/User";
-import { ConfirmationStatus } from "../enums/validation-status";
+import { ConfirmationStatus } from "../enums/confirmation-status";
+import { AuthorizationLevel } from "../enums/authorization-level";
 const request = require("express-validator");
 
 /**
@@ -120,7 +121,8 @@ export let postSignup = (req: Request, res: Response, next: NextFunction) => {
     const user: UserModel = new User({
         email: req.body.email,
         password: req.body.password,
-        confirmationStatus: ConfirmationStatus.Pending
+        confirmationStatus: ConfirmationStatus.Pending,
+        authorizationLevel: AuthorizationLevel.Regular
     });
 
     User.findOne({ email: req.body.email }, (err, existingUser) => {
@@ -161,7 +163,7 @@ export let getAccount = (req: Request, res: Response) => {
  */
 export let postUpdateProfile = (req: Request, res: Response, next: NextFunction) => {
     req.assert("email", "Please enter a valid email address.").isEmail();
-    req.sanitize("email").normalizeEmail({ gmail_remove_dots: false });
+    req.sanitize("email").normalizeEmail({ gmail_lowercase: true, gmail_remove_dots: false });
 
     const errors = req.validationErrors();
 

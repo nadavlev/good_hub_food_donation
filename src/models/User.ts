@@ -2,7 +2,8 @@ import bcrypt from "bcrypt-nodejs";
 import crypto from "crypto";
 import mongoose from "mongoose";
 
-import { ConfirmationStatus } from "../enums/validation-status";
+import { ConfirmationStatus } from "../enums/confirmation-status";
+import { AuthorizationLevel } from "../enums/authorization-level";
 
 export type UserModel = mongoose.Document & {
   email: string,
@@ -10,6 +11,7 @@ export type UserModel = mongoose.Document & {
   passwordResetToken: string,
   passwordResetExpires: Date,
   confirmationStatus: ConfirmationStatus,
+  authorizationLevel: AuthorizationLevel,
 
   facebook: string,
   tokens: AuthToken[],
@@ -37,6 +39,7 @@ const userSchema = new mongoose.Schema({
   passwordResetToken: String,
   passwordResetExpires: Date,
   confirmationStatus: Number,
+  authorizationLevel: Number,
 
   facebook: String,
   twitter: String,
