@@ -24,7 +24,7 @@ import * as userController from "./controllers/user";
 import * as apiController from "./controllers/api";
 import * as contactController from "./controllers/contact";
 import * as clientController from "./controllers/client";
-
+import * as adminController from "./controllers/admin";
 
 // API keys and Passport configuration
 import * as passportConfig from "./config/passport";
@@ -98,6 +98,7 @@ app.get("/client", clientController.getClient);
 app.post("/client", clientController.createClient);
 app.put("/client", clientController.updateClient);
 app.delete("/client", clientController.deleteClient);
+app.get("/admin/user/all", adminController.getAllUsers);
 app.get("/login", userController.getLogin);
 app.post("/login", userController.postLogin);
 app.get("/logout", userController.logout);

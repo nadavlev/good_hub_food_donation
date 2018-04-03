@@ -137,12 +137,8 @@ export let postSignup = (req: Request, res: Response, next: NextFunction) => {
             if (err) {
                 return next(err);
             }
-            req.logIn(user, (err) => {
-                if (err) {
-                    return next(err);
-                }
-                res.redirect("/");
-            });
+            req.flash("info", { msg: "Your request to sign up has been submitted, and now waits for an admin confirmation." });
+            return res.redirect("/");
         });
     });
 };
