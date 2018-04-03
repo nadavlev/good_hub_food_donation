@@ -44,7 +44,7 @@ export let postLogin = (req: Request, res: Response, next: NextFunction) => {
             return next(err);
         }
         if (!user) {
-            req.flash("errors", info.message);
+            req.flash("errors", { msg: info.message });
             return res.redirect("/login");
         }
         if (user.confirmationStatus !== ConfirmationStatus.Approved) {

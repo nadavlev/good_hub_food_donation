@@ -9,7 +9,7 @@ import User, { UserModel } from "../models/User";
  */
 export let getAllUsers = (req: Request, res: Response) => {
     if (req.user.authorizationLevel !== AuthorizationLevel.Admin) {
-        req.flash("error", { msg: "The requested operation is only permitted to admins." });
+        req.flash("errors", { msg: "The requested operation is only permitted to admins." });
         return res.redirect("/");
     }
     else {
