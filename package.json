@@ -1,12 +1,27 @@
 {
-  "name": "express-typescript-starter",
+  "name": "goodhub-food-donations",
   "version": "0.1.0",
-  "description": "A starting point for Node.js express apps with TypeScript",
+  "description": "A food donations managing application",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/TypeScript-Node-Starter"
+    "url": "https://github.com/nadavlev/good_hub_food_donation"
   },
-  "author": "Bowden Kelly",
+  "contributors": [
+      {
+          "name": "Ofri Herold",
+          "email": "ofri.herold@gmail.com",
+          "url": "https://github.com/hofled"
+      },
+      {
+          "name": "Nadav Lev"
+      },
+      {
+          "name": "Refael Mimran"
+      },
+      {
+          "name": "Erez Attar"
+      }
+  ],
   "license": "MIT",
   "scripts": {
     "start": "npm run serve",
