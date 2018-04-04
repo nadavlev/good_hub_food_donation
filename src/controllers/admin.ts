@@ -8,6 +8,11 @@ import User, { UserModel } from "../models/User";
  * @param res
  */
 export let getAllUsers = (req: Request, res: Response) => {
+    if (!req.user) {
+        // No user is logged in to the session
+        return res.sendStatus(403);
+    }
+
     if (req.user.authorizationLevel !== AuthorizationLevel.Admin) {
         req.flash("errors", { msg: "The requested operation is only permitted to admins." });
         return res.redirect("/");

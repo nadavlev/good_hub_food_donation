@@ -94,11 +94,23 @@ app.use(
  * Primary app routes.
  */
 app.get("/", homeController.index);
+
+/**
+ * Client routes
+ */
 app.get("/client", clientController.getClient);
 app.post("/client", clientController.createClient);
 app.put("/client", clientController.updateClient);
 app.delete("/client", clientController.deleteClient);
+
+/**
+ * Admin routes
+ */
 app.get("/admin/user/all", adminController.getAllUsers);
+
+/**
+ * User routes
+ */
 app.get("/login", userController.getLogin);
 app.post("/login", userController.postLogin);
 app.get("/logout", userController.logout);
@@ -108,8 +120,16 @@ app.get("/reset/:token", userController.getReset);
 app.post("/reset/:token", userController.postReset);
 app.get("/signup", userController.getSignup);
 app.post("/signup", userController.postSignup);
+
+/**
+ * Contact routes
+ */
 app.get("/contact", contactController.getContact);
 app.post("/contact", contactController.postContact);
+
+/**
+ * User account routes
+ */
 app.get("/account", passportConfig.isAuthenticated, userController.getAccount);
 app.post("/account/profile", passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.post("/account/password", passportConfig.isAuthenticated, userController.postUpdatePassword);
