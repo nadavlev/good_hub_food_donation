@@ -28,6 +28,8 @@ import * as adminController from "./controllers/admin";
 
 // API keys and Passport configuration
 import * as passportConfig from "./config/passport";
+import { TaskScheduler } from "./utils/task-scheduler";
+import { ConfirmationManager } from "./managers/confirmation-manager";
 
 // Create Express server
 const app = express();
@@ -149,5 +151,14 @@ app.get("/auth/facebook", passport.authenticate("facebook", { scope: ["email", "
 app.get("/auth/facebook/callback", passport.authenticate("facebook", { failureRedirect: "/login" }), (req, res) => {
     res.redirect(req.session.returnTo || "/");
 });
+
+/**
+ * Initializes the cron tasks
+ */
+scheduleCronTasks();
+
+function scheduleCronTasks() {
+    TaskScheduler.scheduleRepeatingJob("00 30 11 * * 0-6", ConfirmationManager.getPendingConfirmations);
+}
 
 export default app;

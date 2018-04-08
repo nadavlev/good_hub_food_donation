@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { AuthorizationLevel } from "../enums/authorization-level";
-import User, { UserModel } from "../models/User";
+import User from "../models/User";
 
 /**
  * Gets all the User documents from the Users collection.
