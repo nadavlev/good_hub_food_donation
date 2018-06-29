@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+import { AssignmentType } from "./assignmentType";
 
 
 export type ClientModel = mongoose.Document & {
@@ -15,7 +16,7 @@ export type ClientModel = mongoose.Document & {
     creationUser: any,
     updateDate: Date,
     updateUser: any,
-    needs: any[];
+    assignmentTypes: AssignmentType[];
 };
 
 const ClientSchema = new mongoose.Schema({
