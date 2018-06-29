@@ -7,20 +7,18 @@
     "url": "https://github.com/nadavlev/good_hub_food_donation"
   },
   "contributors": [
-      {
-          "name": "Ofri Herold",
-          "email": "ofri.herold@gmail.com",
-          "url": "https://github.com/hofled"
-      },
-      {
-          "name": "Nadav Lev"
-      },
-      {
-          "name": "Refael Mimran"
-      },
-      {
-          "name": "Erez Attar"
-      }
+    {
+      "name": "Ofri Herold"
+    },
+    {
+      "name": "Nadav Lev"
+    },
+    {
+      "name": "Refael Mimran"
+    },
+    {
+      "name": "Erez Attar"
+    }
   ],
   "license": "MIT",
   "scripts": {
